@@ -9,3 +9,4 @@ Style/Documentation:
 AllCops:
   Exclude:
     - lib/tasks/auto_annotate_models.rake
+    - db/schema.rb
