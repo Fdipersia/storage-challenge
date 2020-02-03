@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_03_081850) do
+ActiveRecord::Schema.define(version: 2020_02_03_125414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,12 +19,12 @@ ActiveRecord::Schema.define(version: 2020_02_03_081850) do
     t.string "name"
     t.string "source"
     t.string "destination"
-    t.date "entry_at"
-    t.date "exit_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "category"
     t.string "consignment_id"
+    t.datetime "entry_at"
+    t.datetime "exit_at"
   end
 
   create_table "users", force: :cascade do |t|

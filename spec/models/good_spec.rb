@@ -7,8 +7,8 @@
 #  id             :bigint           not null, primary key
 #  category       :string
 #  destination    :string
-#  entry_at       :date
-#  exit_at        :date
+#  entry_at       :datetime
+#  exit_at        :datetime
 #  name           :string
 #  source         :string
 #  created_at     :datetime         not null

@@ -7,7 +7,7 @@
   <%= f.input :category %>
   <%= f.input :source %>
   <%= f.input :destination %>
-  <%= f.input :entry_at, label: 'Entry at:' %>
-  <%= f.input :exit_at, label: 'Exit at:' %>
+  <%= f.input :entry_at, as: :datetime, label: 'Entry at:' %>
+  <%= f.input :exit_at, as: :datetime, label: 'Exit at:' %>
   <%= f.button :submit %>
 <% end %>

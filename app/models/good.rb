@@ -7,8 +7,8 @@
 #  id             :bigint           not null, primary key
 #  category       :string
 #  destination    :string
-#  entry_at       :date
-#  exit_at        :date
+#  entry_at       :datetime
+#  exit_at        :datetime
 #  name           :string
 #  source         :string
 #  created_at     :datetime         not null
@@ -26,7 +26,7 @@ class Good < ApplicationRecord
   validate  :exit_at, :cannot_be_smaller_than_entry_at, if: -> { entry_at && exit_at }
 
   scope :type, ->(type) { where('category ILIKE ?', type) }
-  scope :arrive_by, ->(arrival_date) { where('entry_at = ?', arrival_date) }
+  scope :arrive_by, ->(arrival_date) { where("date_trunc('day', entry_at) = ?", arrival_date) }
 
   def cannot_be_smaller_than_entry_at
     errors.add(:exit_at, 'Can not be smaller than entry date') if exit_at < entry_at
