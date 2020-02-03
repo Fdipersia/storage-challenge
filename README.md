@@ -31,6 +31,7 @@ the storage.
 
 * Improve test coverage
   Missing testing controllers
+  Add coverage gem
 
 * Fix all the Rubocop offenses
   So far they are stored in .rubocop_todo.yml
