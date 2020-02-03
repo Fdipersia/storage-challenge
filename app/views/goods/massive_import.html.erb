@@ -1,16 +1,20 @@
-<h4> Massive Import </h4>
+<div class="container">
+	<h4 class="d-flex justify-content-center"> Massive Import </h4>
 
-The CSV (comma-separated values) file can be generated with a spreadsheet.<br>
+	The CSV (comma-separated values) file can be generated with a spreadsheet.<br>
 
-It have to be exported as CSV.<br>
+	It have to be exported as CSV.<br>
 
-The first row must be Consignment ID,	Type,	Name,	Source,	Destination,	Entry at,	Exit at.<br>
+	The first row must be Consignment ID,	Type,	Name,	Source,	Destination,	Entry at,	Exit at.<br>
 
-<%= image_tag 'csv_example' %>
+	<%= image_tag 'csv_example', class:'mt-2 mb-2' %>
 
-<%= form_tag import_goods_path, multipart: true do %>
-	<%= file_field_tag :file %>
-	<%= submit_tag "Import CSV" %>
-<% end %>
-
-<%= link_to 'Cancel', goods_path %>
+	<%= form_tag import_goods_path, multipart: true, class:'form-control-file' do %>
+		<div class="custom-file w-100">
+			<%= file_field_tag :file %>
+		</div>
+		<%= submit_tag "Import CSV", class: 'mt-2' %>
+	<% end %>
+	
+	<%= link_to 'Cancel', goods_path, class:'btn btn-danger mt-3' %>
+</div>

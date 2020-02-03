@@ -30,6 +30,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 # Forms helper
 gem 'simple_form', '>= 5.0.0'
+# Bootstrap
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

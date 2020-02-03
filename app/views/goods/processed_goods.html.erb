@@ -1,5 +1,7 @@
-<h3>Not saved goods</h3>
-<%= render 'goods_table', goods: processed_goods[:not_saved] %>
-<h3>Saved goods</h3>
-<%= render 'goods_table', goods: processed_goods[:saved] %>
-<%= link_to 'Index', goods_path %>
+<div class="container">
+  <h3>Not saved goods</h3>
+  <%= render 'goods_table', goods: processed_goods[:not_saved] %>
+  <h3>Saved goods</h3>
+  <%= render 'goods_table', goods: processed_goods[:saved] %>
+  <%= link_to 'Index', goods_path, class:'btn btn-success' %>
+</div>

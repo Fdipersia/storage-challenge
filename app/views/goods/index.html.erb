@@ -1,17 +1,17 @@
-<% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
-<% end %>
-<h3>Goods</h3>
-<form >
-  <input name="type" placeholder="Type" value="<%= params[:type] %>" type="text"/>
-  <input type="submit" value="Filter"/>
-</form>
-<form >
-  <input name="arrival_date" placeholder="Arrival Date" value="<%= params[:arrival_date] %>" type="date"/>
-  <input type="submit" value="Filter"/>
-</form>
-<%= link_to 'Clear filters', goods_path %>
-<%= render "goods_table", goods: @goods  %>
+<div class="container mb-2">
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+  <h3 class="d-flex justify-content-center">Goods</h3>
+  <form class="mb-2">
+    <input name="type" placeholder="Type" value="<%= params[:type] %>" type="text"/>
+    <input type="submit" value="Filter" class="btn btn-sm btn-info"/>
+    <input name="arrival_date" placeholder="Arrival Date" value="<%= params[:arrival_date] %>" type="date"/>
+    <input type="submit" value="Filter" class="btn btn-sm btn-info"/>
+    <%= link_to 'Clear filters', goods_path, class: 'btn btn-outline-secondary' %>
+  </form>
+  <%= render "goods_table", goods: @goods  %>
 
-<%= link_to 'New Good', new_good_path %>
-<%= link_to 'Massive Import', massive_import_goods_path %>
+  <%= link_to 'New Good', new_good_path, class: 'btn btn-success' %>
+  <%= link_to 'Massive Import', massive_import_goods_path, class: 'btn btn-primary' %>
+</div>

@@ -1,12 +1,14 @@
-<h1>Sign up</h1>
+<div class="container">
+  <h3 class="d-flex justify-content-center">Sign up</h3>
 
-<%= form_for :user, url: '/users' do |f| %>
+  <%= simple_form_for :user, url: '/users' do |f| %>
+    <%= f.error_notification %>
 
-  First Name: <%= f.text_field :first_name %>
-  Last Name: <%= f.text_field :last_name %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
-
-<% end %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+    <%= f.button :submit, class: 'form-control btn btn-success mt-3' %>
+  <% end %>
+</div>
