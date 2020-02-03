@@ -1,16 +1,20 @@
 <div class="container">
+  <div class="row">
   <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
   <% end %>
-  <h3 class="d-flex justify-content-center">Login</h3>
-
-  <%= simple_form_for '/login' do %>
-    Email:
-    <%= text_field_tag :email, 'Email', class: 'form-control w-100' %>
-    Password:
-    <%= password_field_tag :password, 'Password', class: 'form-control w-100' %>
-    <%= submit_tag "Submit", class:'btn btn-primary form-control mt-3' %>
-
-  <% end %>
+  </div>
+  <div class="row">
+    <h3 class="w-100">Login</h3>
+  </div>
+  <div class="row">
+    <%= simple_form_for '/login', html:{class: 'w-50'} do %>
+      Email:
+      <%= text_field_tag :email, 'Email', class: 'form-control w-50' %>
+      Password:
+      <%= password_field_tag :password, 'Password', class: 'form-control w-50' %>
+      <%= submit_tag "Submit", class:'btn btn-primary form-control mt-3 w-50' %>
+    <% end %>
+  </div>
 </div>
 
