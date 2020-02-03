@@ -2,6 +2,15 @@
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 <h3>Goods</h3>
+<form >
+  <input name="type" placeholder="Type" value="<%= params[:type] %>" type="text"/>
+  <input type="submit" value="Filter"/>
+</form>
+<form >
+  <input name="arrival_date" placeholder="Arrival Date" value="<%= params[:arrival_date] %>" type="date"/>
+  <input type="submit" value="Filter"/>
+</form>
+<%= link_to 'Clear filters', goods_path %>
 <%= render "goods_table", goods: @goods  %>
 
 <%= link_to 'New Good', new_good_path %>

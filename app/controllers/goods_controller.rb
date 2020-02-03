@@ -4,7 +4,10 @@ class GoodsController < ApplicationController
   before_action :authorize
 
   def index
-    @goods = Good.all
+    type = params[:type]
+    arrival_date = params[:arrival_date]
+    goods = type.blank? ? Good.all : Good.all.type(type)
+    @goods = arrival_date.blank? ? goods : goods.arrive_by(arrival_date)
   end
 
   def new
