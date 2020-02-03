@@ -1,7 +1,14 @@
-<div>
-	<h4> Massive Import </h4>
-		<%= form_tag import_goods_path, multipart: true do %>
-		<%= file_field_tag :file %>
-		<%= submit_tag "Import CSV" %>
-		<% end %> 
-</div>
+<h4> Massive Import </h4>
+
+The CSV (comma-separated values) file can be generated with a spreadsheet.<br>
+
+It have to be exported as CSV.<br>
+
+The first row must be Consignment ID,	Type,	Name,	Source,	Destination,	Entry at,	Exit at.<br>
+
+<%= image_tag 'csv_example' %>
+
+<%= form_tag import_goods_path, multipart: true do %>
+	<%= file_field_tag :file %>
+	<%= submit_tag "Import CSV" %>
+<% end %>

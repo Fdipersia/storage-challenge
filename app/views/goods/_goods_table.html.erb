@@ -15,8 +15,8 @@
       <td><%= good.category %></td>
       <td><%= good.source %></td>
       <td><%= good.destination %></td>
-      <td><%= good.entry_at %></td>
-      <td><%= good.exit_at %></td>
+      <td><%= good.entry_at.try(:strftime, "%d/%m/%Y at %H:%M") %></td>
+      <td><%= good.exit_at.try(:strftime, "%d/%m/%Y at %H:%M") %></td>
     </tr>
   <% end %>
 </table>
