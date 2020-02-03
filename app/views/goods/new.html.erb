@@ -1,0 +1,12 @@
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+<%= simple_form_for @good do |f| %>
+  <%= f.input :name, label: 'Name', error: 'Name is mandatory, please specify one' %>
+  <%= f.input :category %>
+  <%= f.input :source %>
+  <%= f.input :destination %>
+  <%= f.input :entry_at, label: 'Entry at:' %>
+  <%= f.input :exit_at, label: 'Exit at:' %>
+  <%= f.button :submit %>
+<% end %>
