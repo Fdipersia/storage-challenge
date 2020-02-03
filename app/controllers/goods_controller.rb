@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class GoodsController < ApplicationController
+  before_action :authorize
+
   def index
     @goods = Good.all
   end
