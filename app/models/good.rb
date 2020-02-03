@@ -22,7 +22,7 @@ class Good < ApplicationRecord
   validates :destination, presence: true
   validates :entry_at, presence: true, if: -> { exit_at.blank? }
   validates :exit_at, presence: true, if: -> { entry_at.blank? }
-  validate  :exit_at, :cannot_be_smaller_than_entry_at
+  validate  :exit_at, :cannot_be_smaller_than_entry_at, if: -> { entry_at && exit_at }
 
   def cannot_be_smaller_than_entry_at
     errors.add(:exit_at, "Can't be smaller than entry date") if exit_at < entry_at

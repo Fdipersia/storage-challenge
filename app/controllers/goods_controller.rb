@@ -12,11 +12,10 @@ class GoodsController < ApplicationController
   def create
     @good = Good.new(good_params)
     if @good.save
-      redirect_to goods_path
       flash.notice = 'Good successfully created'
+      redirect_to goods_path
     else
-      redirect_to new_good_path
-      flash.notice = 'Good could not be created'
+      render 'new'
     end
   end
 
