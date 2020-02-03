@@ -19,19 +19,19 @@ the storage.
 # POSSIBLE IMPROVEMENTS
 
 * Add roles, a user can be an Admin and delete other users and / or goods
-  This could be done with Administrate gem.
+  - This could be done with Administrate gem
 
 * Add translations
 
 * Add autocomplete to filter while typing
-  This could be done with Elasticsearch
+  - This could be done with Elasticsearch
 
 * Improve style
-  This could be donde with some designing
+  - This could be donde with some designing
 
 * Improve test coverage
-  Missing testing controllers
-  Add coverage gem
+  - Missing testing controllers
+  - Add coverage gem
 
 * Fix all the Rubocop offenses
-  So far they are stored in .rubocop_todo.yml
+  - So far they are stored in .rubocop_todo.yml
