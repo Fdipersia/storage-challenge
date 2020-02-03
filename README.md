@@ -1,28 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 # DESCRIPTION
 
 This web application stores and displays a set of records related to
@@ -34,3 +11,26 @@ the storage.
 * Ruby version: '2.4.4'
 
 * Database: PostgreSQL
+
+* Database creation: rails db:create
+
+* Test: rspec
+
+# POSSIBLE IMPROVEMENTS
+
+* Add roles, a user can be an Admin and delete other users and / or goods
+  This could be done with Administrate gem.
+
+* Add translations
+
+* Add autocomplete to filter while typing
+  This could be done with Elasticsearch
+
+* Improve style
+  This could be donde with some designing
+
+* Improve test coverage
+  Missing testing controllers
+
+* Fix all the Rubocop offenses
+  So far they are stored in .rubocop_todo.yml
