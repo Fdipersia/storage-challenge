@@ -2,7 +2,8 @@
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 <%= simple_form_for @good do |f| %>
-  <%= f.input :name, label: 'Name', error: 'Name is mandatory, please specify one' %>
+  <%= f.input :consignment_id, label: 'Consignment ID' %>
+  <%= f.input :name %>
   <%= f.input :category %>
   <%= f.input :source %>
   <%= f.input :destination %>

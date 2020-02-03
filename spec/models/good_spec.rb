@@ -4,15 +4,16 @@
 #
 # Table name: goods
 #
-#  id          :bigint           not null, primary key
-#  category    :string
-#  destination :string
-#  entry_at    :date
-#  exit_at     :date
-#  name        :string
-#  source      :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id             :bigint           not null, primary key
+#  category       :string
+#  destination    :string
+#  entry_at       :date
+#  exit_at        :date
+#  name           :string
+#  source         :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  consignment_id :string
 #
 
 require 'rails_helper'
@@ -26,6 +27,7 @@ RSpec.describe Good, type: :model do
         category: 'Food',
         source: 'Australia/Sydney',
         destination: 'Australia/Perth',
+        consignment_id: 'AS1001AP',
         entry_at: '2019-02-03 02:29:06',
         exit_at: '2020-02-03 02:29:06'
       )
@@ -36,6 +38,7 @@ RSpec.describe Good, type: :model do
       Good.new(
         category: 'Food',
         source: 'Australia/Sydney',
+        consignment_id: 'AS1001AP',
         destination: 'Australia/Perth',
         entry_at: '2020-02-03 02:29:06'
       )
@@ -46,6 +49,18 @@ RSpec.describe Good, type: :model do
       Good.new(
         name: 'Coconuts',
         source: 'Australia/Sydney',
+        consignment_id: 'AS1001AP',
+        destination: 'Australia/Perth',
+        entry_at: '2020-02-03 02:29:06'
+      )
+    ).not_to be_valid
+  end
+  it 'is not valid without consignment_id' do
+    expect(
+      Good.new(
+        name: 'Coconuts',
+        source: 'Australia/Sydney',
+        category: 'Food',
         destination: 'Australia/Perth',
         entry_at: '2020-02-03 02:29:06'
       )
@@ -56,6 +71,7 @@ RSpec.describe Good, type: :model do
       Good.new(
         name: 'Coconuts',
         category: 'Food',
+        consignment_id: 'AS1001AP',
         destination: 'Australia/Perth',
         entry_at: '2020-02-03 02:29:06'
       )
@@ -66,6 +82,7 @@ RSpec.describe Good, type: :model do
       Good.new(
         name: 'Coconuts',
         category: 'Food',
+        consignment_id: 'AS1001AP',
         source: 'Australia/Sydney',
         entry_at: '2020-02-03 02:29:06'
       )
@@ -76,6 +93,7 @@ RSpec.describe Good, type: :model do
       Good.new(
         name: 'Coconuts',
         category: 'Food',
+        consignment_id: 'AS1001AP',
         source: 'Australia/Sydney',
         destination: 'Australia/Perth'
       )
@@ -86,10 +104,33 @@ RSpec.describe Good, type: :model do
       Good.new(
         name: 'Coconuts',
         category: 'Food',
+        consignment_id: 'AS1001AP',
         source: 'Australia/Sydney',
         destination: 'Australia/Perth',
         entry_at: '2020-02-03 02:29:06',
         exit_at: '2019-02-03 02:29:06'
+      )
+    ).not_to be_valid
+  end
+  it 'is not valid if consignment_id is not unique' do
+    Good.create(
+      name: 'Coconuts',
+      category: 'Food',
+      consignment_id: 'AS1001AP',
+      source: 'Australia/Sydney',
+      destination: 'Australia/Perth',
+      entry_at: '2019-02-03 02:29:06',
+      exit_at: '2020-02-03 02:29:06'
+    )
+    expect(
+      Good.new(
+        name: 'Pears',
+        category: 'Food',
+        consignment_id: 'AS1001AP',
+        source: 'Australia/Sydney',
+        destination: 'Australia/Perth',
+        entry_at: '2019-02-03 02:29:06',
+        exit_at: '2020-02-03 02:29:06'
       )
     ).not_to be_valid
   end

@@ -21,9 +21,22 @@ class GoodsController < ApplicationController
     end
   end
 
+  def massive_import; end
+
+  def import
+    processed_goods = Good.import(params[:file])
+    render 'processed_goods', locals: { processed_goods: processed_goods }
+  end
+
   private
 
   def good_params
-    params.require(:good).permit(:name, :category, :source, :destination, :entry_at, :exit_at)
+    params.require(:good).permit(:name,
+                                 :category,
+                                 :consignment_id,
+                                 :source,
+                                 :destination,
+                                 :entry_at,
+                                 :exit_at)
   end
 end
