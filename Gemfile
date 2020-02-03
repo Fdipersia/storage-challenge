@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Forms helper
-gem 'simple_form'
+gem 'simple_form', '>= 5.0.0'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
